@@ -1,3 +1,9 @@
+talloc (2.1.5-3ubports) xenial; urgency=medium
+
+  * Hack: Keep python2 out of the images (from debian)
+
+ -- Marius Gripsgard <marius@ubports.com>  Tue, 03 Jul 2018 00:46:45 +0200
+
 talloc (2.1.5-2) unstable; urgency=medium
 
   [ Matthias Klose ]
