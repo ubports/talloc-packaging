@@ -26,6 +26,10 @@ export PYTHON="$(shell which `pyversions -d`)"
 
 override_dh_python2:
 	dh_python2 --no-guessing-versions
+	: # this is a hack ... to keep python off the desktop image
+	-grep '^python:Depends=' \
+	  debian/python-talloc.substvars >> debian/python-talloc-dev.substvars
+	sed -i -e '/^python:Depends=/d' debian/python-talloc.substvars
 
 override_dh_auto_configure:
 	LDFLAGS="$(LDFLAGS)" PYTHON="$(PYTHON)" CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" ./configure $(conf_args)
